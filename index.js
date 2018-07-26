@@ -26,9 +26,11 @@ const getRepos = function(){
   })
 }
 
-const printRepos = (repos) => repos.forEach((repo) => console.log(repo.name))
+const printRepos = (repos) => repos.forEach((repo,index) => console.log(`${index+1} ${repo.name}`))
 
 getRepos()
   .then((repos)=>{
+    console.log(`${username} has ${repos.length} repositories. \n`);
     printRepos(repos);
   })
+  .catch((err) => console.log(err))
